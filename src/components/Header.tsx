@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, Row, ToggleButton, Button } from "@once-ui-system/core";
 import { useTranslations } from 'next-intl';
 
 import { routes, display, person, about, blog, work, gallery } from "@/resources";
@@ -192,6 +192,14 @@ export const Header = () => {
             <Flex s={{ hide: true }}>
               {display.time && <TimeDisplay timeZone={person.location} />}
             </Flex>
+            <Button
+              href="https://github.com/gokcank"
+              prefixIcon="github"
+              size="s"
+              weight="default"
+              variant="secondary"
+              label="Let's Connect!"
+            />
           </Flex>
         </Flex>
       </Row>
