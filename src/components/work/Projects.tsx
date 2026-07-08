@@ -2,13 +2,42 @@ import { getPosts } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
 
+interface ProjectPost {
+  slug: string;
+  metadata: {
+    title: string;
+    summary: string;
+    images: string[];
+    team?: { avatar: string }[];
+    link?: string;
+    publishedAt: string;
+  };
+  content: string;
+}
+
 interface ProjectsProps {
   range?: [number, number?];
   exclude?: string[];
+  locale?: string;
 }
 
-export function Projects({ range, exclude }: ProjectsProps) {
-  let allProjects = getPosts(["src", "app", "work", "projects"]);
+export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
+  // Try locale-specific folder first, fallback to root
+  let allProjects: ProjectPost[] = [];
+  
+  try {
+    allProjects = getPosts(["src", "app", "[locale]", "work", "projects", locale]);
+  } catch {
+    // fallback to root projects
+  }
+  
+  if (!allProjects || allProjects.length === 0) {
+    try {
+      allProjects = getPosts(["src", "app", "[locale]", "work", "projects"]);
+    } catch {
+      allProjects = [];
+    }
+  }
 
   // Exclude by slug (exact match)
   if (exclude && exclude.length > 0) {

@@ -4,9 +4,10 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { useTranslations } from 'next-intl';
 
 import { routes, display, person, about, blog, work, gallery } from "@/resources";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle, LocaleSwitcher } from "@/components";
 import styles from "./Header.module.scss";
 
 type TimeDisplayProps = {
@@ -43,7 +44,10 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" })
 export default TimeDisplay;
 
 export const Header = () => {
-  const pathname = usePathname() ?? "";
+  const rawPathname = usePathname() ?? "";
+  const pathname = rawPathname.replace(/^\/(tr|en)/, '') || '/';
+
+  const t = useTranslations('Navigation');
 
   return (
     <>
@@ -96,7 +100,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="person"
                       href="/about"
-                      label={about.label}
+                      label={t('about')}
                       selected={pathname === "/about"}
                     />
                   </Row>
@@ -115,7 +119,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="grid"
                       href="/work"
-                      label={work.label}
+                      label={t('work')}
                       selected={pathname.startsWith("/work")}
                     />
                   </Row>
@@ -134,7 +138,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="book"
                       href="/blog"
-                      label={blog.label}
+                      label={t('blog')}
                       selected={pathname.startsWith("/blog")}
                     />
                   </Row>
@@ -153,7 +157,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="gallery"
                       href="/gallery"
-                      label={gallery.label}
+                      label={t('gallery')}
                       selected={pathname.startsWith("/gallery")}
                     />
                   </Row>
@@ -170,6 +174,8 @@ export const Header = () => {
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
                   <ThemeToggle />
+                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                  <LocaleSwitcher />
                 </>
               )}
             </Row>

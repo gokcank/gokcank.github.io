@@ -1,0 +1,35 @@
+{
+  "Home": {
+    "headline": "I transform ideas into end-to-end Android applications using AI assistants and modern technologies.",
+    "featuredProject": "Featured Project",
+    "latestBlog": "Latest from the blog"
+  },
+  "About": {
+    "title": "About",
+    "intro": "Instead of traditional coding processes, I develop Android applications by directing AI tools like Gemini and Claude. I manage the software production process by combining ideas with user experience goals.",
+    "process": "My Process",
+    "processDesc1": "I managed the development process of Kotlin and Jetpack Compose based Android applications by directing AI assistants.",
+    "processDesc2": "I structured the processes of AstroYorum, NotesAssistant, OptiDoc, and ValutaRate applications from the idea stage to the publication stage.",
+    "technicalExpertise": "Technical Expertise (via AI)",
+    "skills": {
+      "prompting": "Directing Gemini and Claude models to establish app architecture and resolve logic errors.",
+      "android": "Building Android applications in Kotlin using AI assistants.",
+      "firebase": "Managing the process of adding cloud database, user authentication, and ad services to applications."
+    },
+    "languages": {
+      "Turkish": "Turkish",
+      "English": "English"
+    }
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "work": "Work",
+    "blog": "Blog",
+    "gallery": "Gallery"
+  },
+  "Common": {
+    "underConstruction": "Under Construction",
+    "underConstructionDesc": "This section is currently under construction."
+  }
+}

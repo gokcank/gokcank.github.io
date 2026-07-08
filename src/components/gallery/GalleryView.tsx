@@ -1,9 +1,18 @@
 "use client";
 
-import { Media, MasonryGrid } from "@once-ui-system/core";
+import { Media, MasonryGrid, Flex, Text } from "@once-ui-system/core";
 import { gallery } from "@/resources";
 
 export default function GalleryView() {
+  if (gallery.images.length === 0) {
+    return (
+      <Flex fillWidth direction="column" alignItems="center" paddingY="128">
+        <Text variant="heading-strong-xl" marginBottom="16">{gallery.title}</Text>
+        <Text variant="body-default-m" onBackground="neutral-weak">{gallery.description}</Text>
+      </Flex>
+    );
+  }
+
   return (
     <MasonryGrid columns={2} s={{ columns: 1 }}>
       {gallery.images.map((image, index) => (

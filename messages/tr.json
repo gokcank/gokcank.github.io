@@ -1,0 +1,35 @@
+{
+  "Home": {
+    "headline": "Yapay zeka asistanları (AI-Assisted) ve modern teknolojiler kullanarak fikirleri uçtan uca Android uygulamalarına dönüştürüyorum.",
+    "featuredProject": "Öne Çıkan Proje",
+    "latestBlog": "Blogdan son yazılar"
+  },
+  "About": {
+    "title": "Hakkında",
+    "intro": "Geleneksel kodlama süreçleri yerine Gemini ve Claude gibi yapay zeka araçlarına yönergeler vererek Android uygulamaları geliştiriyorum. Fikirleri, kullanıcı deneyimi hedefleriyle birleştirerek yazılım üretim süreçlerini yönetiyorum.",
+    "process": "Benim Sürecim",
+    "processDesc1": "Yapay zeka asistanlarını yönlendirerek Kotlin ve Jetpack Compose tabanlı Android uygulamaları geliştirme sürecini yönettim.",
+    "processDesc2": "AstroYorum, NotesAssistant, OptiDoc ve ValutaRate uygulamalarının fikir aşamasından yayınlanma aşamasına kadarki süreçlerini kurguladım.",
+    "technicalExpertise": "Teknik Uzmanlık (AI ile)",
+    "skills": {
+      "prompting": "Uygulama mimarisini kurmak ve logic hatalarını çözmek için Gemini ve Claude modellerini yönlendirme.",
+      "android": "AI asistanları aracılığıyla Kotlin dilinde Android uygulamaları oluşturma.",
+      "firebase": "Uygulamalara bulut veri tabanı, kullanıcı doğrulama ve reklam servislerini ekleme sürecini yönetme."
+    },
+    "languages": {
+      "Turkish": "Türkçe",
+      "English": "İngilizce"
+    }
+  },
+  "Navigation": {
+    "home": "Ana Sayfa",
+    "about": "Hakkında",
+    "work": "Projeler",
+    "blog": "Blog",
+    "gallery": "Galeri"
+  },
+  "Common": {
+    "underConstruction": "Yapım Aşamasında",
+    "underConstructionDesc": "Bu bölüm şu anda yapım aşamasındadır."
+  }
+}
