@@ -192,14 +192,6 @@ export const Header = () => {
             <Flex s={{ hide: true }}>
               {display.time && <TimeDisplay timeZone={person.location} />}
             </Flex>
-            <Button
-              href="https://github.com/gokcank"
-              prefixIcon="github"
-              size="s"
-              weight="default"
-              variant="secondary"
-              label="Let's Connect!"
-            />
           </Flex>
         </Flex>
       </Row>
