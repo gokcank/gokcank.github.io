@@ -6,7 +6,7 @@ import { gallery } from "@/resources";
 export default function GalleryView() {
   if (gallery.images.length === 0) {
     return (
-      <Flex fillWidth direction="column" alignItems="center" paddingY="128">
+      <Flex fillWidth direction="column" align="center" paddingY="128">
         <Text variant="heading-strong-xl" marginBottom="16">{gallery.title}</Text>
         <Text variant="body-default-m" onBackground="neutral-weak">{gallery.description}</Text>
       </Flex>
