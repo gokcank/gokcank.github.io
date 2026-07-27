@@ -114,7 +114,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} locale={locale} />
+        <Column fillWidth horizontal="center" gap="m">
+          <Projects range={[1, 2]} locale={locale} />
+          <Button
+            href="/work"
+            variant="secondary"
+            size="m"
+            arrowIcon
+          >
+            {tHome('allProjects')}
+          </Button>
+        </Column>
       </RevealFx>
       {routes["/blog"] && (
         <Column fillWidth gap="24" marginBottom="l">
@@ -136,7 +146,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </Row>
         </Column>
       )}
-      <Projects range={[2]} locale={locale} />
       <Mailchimp />
     </Column>
   );
