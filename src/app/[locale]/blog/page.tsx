@@ -1,15 +1,14 @@
 import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
-import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person, newsletter } from "@/resources";
-import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { baseURL, blog, person } from "@/resources";
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Navigation' });
   return Meta.generate({
-    title: t('blog'),
+    title: `${t('blog')} | ${person.name}`,
     description: blog.description,
     baseURL: baseURL,
     image: `/api/og/generate?title=${encodeURIComponent(t('blog'))}`,
@@ -17,16 +16,30 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default function Blog() {
-  const t = useTranslations('Common');
+export default async function Blog({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'Navigation' });
+
   return (
-    <Column maxWidth="m" paddingTop="24" horizontal="center" vertical="center" fillHeight>
-      <Heading marginBottom="l" variant="display-strong-m">
-        {t('underConstruction')}
+    <Column maxWidth="m" paddingTop="24">
+      <Schema
+        as="webPage"
+        baseURL={baseURL}
+        path={blog.path}
+        title={t('blog')}
+        description={blog.description}
+        image={`/api/og/generate?title=${encodeURIComponent(t('blog'))}`}
+        author={{
+          name: person.name,
+          url: `${baseURL}/about`,
+          image: `${baseURL}${person.avatar}`,
+        }}
+      />
+      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
+        {t('blog')}
       </Heading>
-      <Heading variant="heading-default-s" onBackground="neutral-weak">
-        {t('underConstructionDesc')}
-      </Heading>
+      <Posts locale={locale} range={[1, 10]} thumbnail />
     </Column>
   );
 }

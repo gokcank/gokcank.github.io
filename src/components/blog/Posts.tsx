@@ -8,6 +8,7 @@ interface PostsProps {
   thumbnail?: boolean;
   direction?: "row" | "column";
   exclude?: string[];
+  locale?: string;
 }
 
 export function Posts({
@@ -16,8 +17,22 @@ export function Posts({
   thumbnail = false,
   exclude = [],
   direction,
+  locale = "en",
 }: PostsProps) {
-  let allBlogs = getPosts(["src", "app", "[locale]", "blog", "posts"]);
+  let allBlogs: any[] = [];
+  try {
+    allBlogs = getPosts(["src", "app", "[locale]", "blog", "posts", locale]);
+  } catch {
+    allBlogs = [];
+  }
+
+  if (!allBlogs || allBlogs.length === 0) {
+    try {
+      allBlogs = getPosts(["src", "app", "[locale]", "blog", "posts"]);
+    } catch {
+      allBlogs = [];
+    }
+  }
 
   // Exclude by slug (exact match)
   if (exclude.length) {
