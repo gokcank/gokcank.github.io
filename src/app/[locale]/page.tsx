@@ -62,8 +62,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <h2 style={{ fontSize: "1.35rem", fontWeight: 600, margin: 0, color: "var(--text-heading)" }}>
             {tHome('allProjects')}
           </h2>
+          <a href={`/${locale}/work`} style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--accent)", textDecoration: "none" }}>
+            {locale === "tr" ? "Tümünü Gör →" : "View All →"}
+          </a>
         </div>
-        <Projects range={[1, 4]} locale={locale} />
+        <Projects range={[1, 6]} locale={locale} />
       </div>
       {routes["/blog"] && (
         <Column fillWidth gap="24" marginBottom="l">
