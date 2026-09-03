@@ -1,19 +1,20 @@
 :root,
 [data-theme="light"] {
-  --bg: #fafafa;
-  --surface: rgba(255, 255, 255, 0.75);
-  --surface-hover: rgba(255, 255, 255, 0.95);
+  --bg: #f7f4ed;
+  --bg-gradient: radial-gradient(ellipse at 50% -10%, #fffdfa 0%, #f7f4ed 45%, #ece7dc 100%);
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-hover: rgba(255, 255, 255, 0.92);
   --surface-elevated: #ffffff;
-  --text: #4b4550;
-  --text-heading: #0f0d14;
-  --text-muted: #6b7280;
-  --border: rgba(15, 13, 20, 0.08);
-  --border-hover: rgba(15, 13, 20, 0.18);
+  --text: #423f3a;
+  --text-heading: #1c1a16;
+  --text-muted: #736e65;
+  --border: rgba(45, 35, 20, 0.09);
+  --border-hover: rgba(45, 35, 20, 0.22);
   --accent: #2563eb;
   --accent-bg: rgba(37, 99, 235, 0.08);
   --accent-hover: #1d4ed8;
-  --shadow-card: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.03);
-  --shadow-elevate: 0 12px 24px -4px rgba(0, 0, 0, 0.08), 0 4px 8px -2px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 4px 14px -2px rgba(60, 50, 30, 0.06), 0 1px 4px 0 rgba(60, 50, 30, 0.03);
+  --shadow-elevate: 0 14px 28px -4px rgba(60, 50, 30, 0.10), 0 4px 10px -2px rgba(60, 50, 30, 0.04);
   --radius-card: 14px;
   --radius-btn: 10px;
   --radius-pill: 9999px;
@@ -21,7 +22,8 @@
 }
 
 [data-theme="dark"] {
-  --bg: #14151a;
+  --bg: #121317;
+  --bg-gradient: radial-gradient(ellipse at 50% -10%, #1c1e26 0%, #121317 55%, #0c0d10 100%);
   --surface: rgba(255, 255, 255, 0.035);
   --surface-hover: rgba(255, 255, 255, 0.065);
   --surface-elevated: #1a1b22;
@@ -35,6 +37,9 @@
   --accent-hover: #93c5fd;
   --shadow-card: 0 4px 12px -2px rgba(0, 0, 0, 0.35);
   --shadow-elevate: 0 16px 32px -4px rgba(0, 0, 0, 0.45);
+  --radius-card: 14px;
+  --radius-btn: 10px;
+  --radius-pill: 9999px;
   color-scheme: dark;
 }
 
@@ -42,8 +47,10 @@
 html,
 body {
   background-color: var(--bg) !important;
+  background-image: var(--bg-gradient) !important;
+  background-attachment: fixed !important;
   color: var(--text) !important;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, background-image 0.3s ease, color 0.3s ease;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -62,18 +69,18 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-backdrop-filter: blur(16px);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: var(--border-hover) !important;
+    box-shadow: var(--shadow-elevate);
+  }
 }
 
-.glass-panel:hover {
-  border-color: var(--border-hover) !important;
-  box-shadow: var(--shadow-elevate);
-}
-
-/* Container Constraint for Clean Breathing Room */
+/* Common Layout Helpers */
 .content-container {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
 }
