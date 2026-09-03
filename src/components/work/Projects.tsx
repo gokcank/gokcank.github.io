@@ -21,6 +21,17 @@ interface ProjectsProps {
   locale?: string;
 }
 
+const iconMap: Record<string, string> = {
+  curalis: "/images/projects/curalis.png",
+  nucleus: "/images/projects/nucleus.png",
+  satsort: "/images/projects/satsort.svg",
+  triviaquiz: "/images/projects/triviaquiz.png",
+  notesassistant: "/images/projects/notesassistant.png",
+  astroyorum: "/images/projects/astroyorum.png",
+  optidoc: "/images/projects/optidoc.png",
+  valutarate: "/images/projects/valutarate.png",
+};
+
 export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
   let allProjects: ProjectPost[] = [];
   
@@ -61,6 +72,7 @@ export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
             description={post.metadata.summary}
             tag={post.metadata.tag || "AI-Assisted"}
             link={post.metadata.link}
+            icon={iconMap[post.slug]}
             caseStudyLabel={locale === "tr" ? "Detayları İncele" : "Read case study"}
             viewProjectLabel={locale === "tr" ? "Projeyi Gör" : "View project"}
           />

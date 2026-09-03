@@ -7,6 +7,7 @@ interface ProjectCardProps {
   description: string;
   tag?: string;
   link?: string;
+  icon?: string;
   caseStudyLabel?: string;
   viewProjectLabel?: string;
 }
@@ -17,10 +18,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   tag = "AI-Assisted",
   link,
+  icon,
   caseStudyLabel = "Read case study",
   viewProjectLabel = "View project",
 }) => {
-  // Extract initial or short letter for icon box
+  // Extract initial or short letter for fallback
   const initial = title ? title.charAt(0).toUpperCase() : "P";
 
   return (
@@ -28,7 +30,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <div>
         <div className={styles.headerRow}>
           <div className={styles.iconBox} aria-hidden="true">
-            {initial}
+            {icon ? (
+              <img src={icon} alt="" className={styles.appIcon} />
+            ) : (
+              initial
+            )}
           </div>
           {tag && <span className={styles.tag}>{tag}</span>}
         </div>

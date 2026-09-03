@@ -27,10 +27,10 @@
 }
 
 .iconBox {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: var(--accent-bg);
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: var(--surface-hover);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -39,6 +39,15 @@
   font-weight: 700;
   font-size: 1.1rem;
   flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.appIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .tag {
