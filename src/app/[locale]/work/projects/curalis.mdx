@@ -1,18 +1,25 @@
 ---
 title: "Curalis"
 publishedAt: "2026-07-20"
-summary: "A privacy-first, local-first intelligent medication and personal health tracking application for Android built with Jetpack Compose."
+summary: "Privacy-first, local-first intelligent medication and personal health tracking Android application built with Jetpack Compose."
 tag: "Kotlin • Compose"
 link: "https://github.com/gokcank/Curalis"
 ---
 
-## Curalis
+## Project Overview
 
-Curalis is a privacy-first, local-first intelligent medication and personal health tracking application built for Android.
+**Curalis** is a modern Android application engineered to help individuals manage their medications, dosage schedules, and health metrics with uncompromising privacy. Built entirely on an offline-first foundation, it keeps all sensitive health records encrypted locally on the device without ever transmitting data to third-party cloud servers.
 
-### Key Features
-- **Smart Medication Reminders**: Dose tracking, inventory alerts, and flexible scheduling.
-- **Privacy by Design**: 100% offline-first architecture using Room DB with zero unnecessary data collection.
-- **Modern UI**: Designed with Jetpack Compose and Material 3 for a seamless, accessible user experience.
+### Architecture & Technical Design
 
-[View on GitHub](https://github.com/gokcank/Curalis)
+- **Modern Android Architecture:** Rooted in Clean Architecture and MVVM design patterns for testability and maintainability.
+- **User Experience:** Fluid animations, dynamic theming, and Material 3 design built with pure **Jetpack Compose**.
+- **Local Data Storage:** Encrypted relational storage using **Room DB** (SQLite) directly on the client device.
+- **Background Scheduling:** Resilient, battery-friendly reminders powered by **WorkManager** and exact AlarmManager APIs.
+
+### Key Capabilities
+
+1. **Intelligent Medication Schedule:** Complex dosage intervals, custom cycle recurring hours, and flexible intake routines.
+2. **Personal Health Journal:** Track blood pressure, glucose levels, heart rate, and symptoms with visual trend analytics.
+3. **Refill & Inventory Warnings:** Early alerts for critical supply depletion.
+4. **Absolute Zero Data Collection:** No analytics, telemetries, or trackers; your medical records remain strictly private.

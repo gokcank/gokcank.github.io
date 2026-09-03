@@ -1,18 +1,23 @@
 ---
 title: "OptiDoc"
-publishedAt: "2026-07-03"
-summary: "A document optimization and management tool to streamline workflows on mobile devices."
+publishedAt: "2026-06-20"
+summary: "On-device, privacy-preserving document and file compression utility for the Android ecosystem."
 tag: "Kotlin"
+link: "https://play.google.com/store/apps/details?id=com.gokcank.optidoc"
 ---
 
-## OptiDoc
+## Project Overview
 
-OptiDoc is a mobile utility app focused on document optimization, allowing users to streamline their digital paperwork workflows.
+**OptiDoc** is a privacy-conscious Android utility designed to shrink the file footprint of scanned documents, photos, and PDF files without degrading visual readability. All operations execute strictly on-device, safeguarding sensitive enterprise and personal paperwork.
 
-### Building with AI
+### Architecture & Technical Design
 
-- **Problem Solving**: I identified the need for a document management tool and used AI to architect the solution.
-- **Execution**: The Kotlin codebase was generated and debugged through iterative prompting with AI tools.
-- **Result**: A functional Android application that aligns with the initial product requirements.
+- **On-Device Compression:** Zero network calls for file processing; all compression algorithms leverage client-side hardware processing.
+- **Intelligent Downsampling:** Strips obsolete metadata while selectively recompressing embedded raster images to preserve crisp typography.
+- **Modern Kotlin Stack:** Android Jetpack components, Kotlin Coroutines for asynchronous file streaming, and strict Scoped Storage support.
 
-[View Source on GitHub](https://github.com/gokcank/OptiDoc)
+### Key Capabilities
+
+1. **PDF Compression:** Rapidly optimizes oversized PDF documents to easily clear email and messenger attachment thresholds.
+2. **Batch File Processing:** Enqueue multiple documents simultaneously for background execution.
+3. **Guaranteed Privacy:** 100% offline assurance for confidential legal, academic, and financial documents.

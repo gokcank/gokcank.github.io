@@ -1,19 +1,23 @@
 ---
 title: "SatSort"
-publishedAt: "2026-08-01"
-summary: "Linux üzerinde uydu ve televizyon kanal listelerini (.sdx) düzenleme, sıralama ve temizleme sağlayan Python ve Qt6 aracı."
-summary_en: "A modern Python and Qt6 GUI tool for Linux to organize, sort, and clean SatcoDX (.sdx) satellite channel lists."
+publishedAt: "2026-07-05"
+summary: "Vestel, Beko, Arçelik TV'ler için Python ve Qt6 ile geliştirilen masaüstü uydu kanal listesi (.sdx) düzenleyicisi."
 tag: "Python • Qt6"
 link: "https://github.com/gokcank/SatSort"
 ---
 
-## SatSort
+## Proje Genel Bakışı
 
-SatSort, uydu alıcıları ve akıllı televizyonlar için SatcoDX (`.sdx`) formatındaki kanal listelerini Linux üzerinde hızlı ve görsel bir arayüzle düzenleme ve sıralama aracıdır.
+**SatSort**, akıllı televizyonlarda (özellikle Vestel, Arçelik, Beko ve Grundig üretimi cihazlar) kullanılan tescilli `.sdx` ikili (binary) uydu kanal listesi dosyalarını modern bir masaüstü arayüzünde kolayca düzenlemeyi sağlayan açık kaynaklı bir Linux aracıdır.
 
-### Temel Özellikler
-- **Sürükle-Bırak & Araya Kaydırma**: Kanalları sıra kayması olmadan kolayca yeniden dizme.
-- **Toplu Temizlik**: Şifreli kanalları silme, radyo kanallarını sona taşıma ve mükerrer kayıtları ayıklama.
-- **Geniş Dışa Aktarma**: CSV, TXT ve VLC/TVheadend uyumlu M3U formatlarında dışa aktarma desteği.
+### Mimari & Teknik Tasarım
 
-[GitHub'da İncele](https://github.com/gokcank/SatSort)
+- **İkili Veri Ayrıştırma (Binary Parsing):** `.sdx` dosya formatının bayt düzeyinde mimarisi tersine mühendislik yaklaşımıyla çözümlenmiş ve hatasız okuma/yazma motoru Python ile geliştirilmiştir.
+- **Masaüstü Arayüzü (PySide6 / Qt6):** Modern masaüstü standartlarına uygun, hızlı ve kararlı bir Qt6 grafik arayüzü.
+- **Kanal Organizasyon Motoru:** Çoklu seçim, sürükle-bırak sıralama, LCN (Mantıksal Kanal Numarası) yeniden indeksleme ve arama filtreleri.
+
+### Öne Çıkan Yetenekler
+
+1. **Sürükle-Bırak Sıralama:** Yüzlerce uydu kanalını saniyeler içinde fareyle istenen sıraya dizebilme.
+2. **Favori & Kategori Yönetimi:** Spor, Haber, Sinema gibi özel favori paketleri oluşturma.
+3. **Otomatik Yedekleme:** Orijinal `.sdx` dosyasını düzenleme öncesinde otomatik güvenceye alan koruma mekanizması.

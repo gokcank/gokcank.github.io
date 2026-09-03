@@ -1,18 +1,23 @@
 ---
 title: "NotesAssistant"
-publishedAt: "2026-07-07"
-summary: "Kullanıcıların düşüncelerini etkin biçimde düzenlemesine yardımcı olan, yapay zeka destekli bir not alma uygulaması."
+publishedAt: "2026-06-10"
+summary: "Akıllı etiketleme, Markdown desteği ve yerel şifreleme sunan modern Android not alma asistanı."
 tag: "Kotlin"
+link: "https://github.com/gokcank/NotesAssistant"
 ---
 
-## NotesAssistant
+## Proje Genel Bakışı
 
-NotesAssistant, kişisel organizasyonu ve düşünce yönetimini kolaylaştırmak amacıyla geliştirilen, yapay zeka destekli bir not alma uygulamasıdır.
+**NotesAssistant**, karmaşık düşünceleri, yapılacaklar listelerini ve toplantı notlarını hızla organize etmek için tasarlanmış minimalist bir Android not alma ve düşünce asistanıdır.
 
-### Yaklaşım
+### Mimari & Teknik Tasarım
 
-- Yapay zeka yönlendirmeleriyle Kotlin tabanlı bir Android uygulaması geliştirdim.
-- Ürün, benim tasarım gereksinimlerime göre oluşturulan sezgisel bir arayüze odaklanmaktadır.
-- Bu proje, bir yardımcı program fikrini hayata geçirme ve geliştirilmesini yapay zeka ile yönetme sürecini öne çıkarmaktadır.
+- **Yerel Şifreli Depolama:** Hassas kişisel notlar için Android Keystore destekli AES-256 şifreleme ve biyometrik (parmak izi) kilit.
+- **Hızlı Metin Motoru:** Markdown sözdizimini anlık olarak önizleyen hafif ve tepkisel metin editörü.
+- **Gelişmiş Arama:** Not başlıkları, etiketler ve metin gövdesi üzerinde tam metin araması (Full-Text Search).
 
-[GitHub'da Kaynağı İncele](https://github.com/gokcank/NotesAssistant)
+### Öne Çıkan Yetenekler
+
+1. **Etiket & Hiyerarşi Düzeni:** İçerikleri dinamik etiketlerle filtreleme ve renklendirme.
+2. **Markdown Desteği:** Başlıklar, listeler, kod blokları ve alıntılar için zengin metin biçimlendirmesi.
+3. **Dışa Aktarma Kolaylığı:** Notları PDF, Markdown veya düz metin olarak anında paylaşabilme.

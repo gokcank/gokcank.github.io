@@ -1,18 +1,23 @@
 ---
 title: "SatSort"
-publishedAt: "2026-08-01"
-summary: "A modern Python and Qt6 GUI tool for Linux to organize, sort, and clean SatcoDX (.sdx) satellite channel lists."
+publishedAt: "2026-07-05"
+summary: "Desktop satellite channel list editor (.sdx) for Vestel, Beko, and Arçelik TVs built with Python and Qt6."
 tag: "Python • Qt6"
 link: "https://github.com/gokcank/SatSort"
 ---
 
-## SatSort
+## Project Overview
 
-SatSort is a visual channel list organizer for Linux designed to edit, sort, and clean SatcoDX (`.sdx`) files for smart TVs and satellite receivers.
+**SatSort** is an open-source Linux desktop tool created to effortlessly parse, organize, and reorder proprietary `.sdx` binary satellite channel list files used by major smart TVs (including Vestel, Arçelik, Beko, and Grundig).
 
-### Key Features
-- **Drag-and-Drop Reordering**: Move and shift channel positions seamlessly with zero sequence drift.
-- **Batch Cleanup Tools**: Remove encrypted channels, sort radios to the bottom, and eliminate duplicates.
-- **Multi-Format Export**: Export cleaned lists to CSV, TXT, and M3U playlists for VLC / TVheadend.
+### Architecture & Technical Design
 
-[View on GitHub](https://github.com/gokcank/SatSort)
+- **Binary Parser:** Reverse-engineered byte-level specification of the `.sdx` binary container, offering dependable parsing and validation.
+- **Desktop UI (PySide6 / Qt6):** Native, snappy desktop interface built with modern Qt6 design principles.
+- **Channel Engine:** Multi-select operations, drag-and-drop ordering, LCN (Logical Channel Numbering) re-indexing, and fast text filtering.
+
+### Key Capabilities
+
+1. **Intuitive Drag-and-Drop:** Rearrange hundreds of satellite and terrestrial channels in seconds.
+2. **Favorites & Categories:** Create and manage customized channel bundles such as Sports, News, and Cinema.
+3. **Automated Safety Backups:** Automatically snapshots original `.sdx` files prior to saving edits.

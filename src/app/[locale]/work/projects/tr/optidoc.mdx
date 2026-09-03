@@ -1,18 +1,23 @@
 ---
 title: "OptiDoc"
-publishedAt: "2026-07-03"
-summary: "Mobil cihazlarda iş akışlarını kolaylaştırmak için geliştirilmiş bir belge optimizasyon ve yönetim aracı."
+publishedAt: "2026-06-20"
+summary: "Android platformu için geliştirilen, yerel ve gizlilik korumalı akıllı doküman ve dosya optimizasyon aracı."
 tag: "Kotlin"
+link: "https://play.google.com/store/apps/details?id=com.gokcank.optidoc"
 ---
 
-## OptiDoc
+## Proje Genel Bakışı
 
-OptiDoc, kullanıcıların dijital evrak süreçlerini kolaylaştırmasına olanak tanıyan, belge optimizasyonuna odaklanan bir mobil uygulama aracıdır.
+**OptiDoc**, Android cihazlarda belgelerin, taranmış evrakların ve PDF dosyalarının kalitesini koruyarak boyutlarını küçülten, tamamen cihaz üzerinde (on-device) çalışan bir dosya optimizasyon yardımcı aracıdır.
 
-### Yapay Zeka ile İnşa
+### Mimari & Teknik Tasarım
 
-- **Problem Tanımı**: Belge yönetimi için bir araca duyulan ihtiyacı tespit ettim ve çözümü mimari açıdan şekillendirmek için yapay zekadan faydalandım.
-- **Uygulama**: Kotlin kod tabanı, yapay zeka araçlarıyla yinelemeli yönlendirmeler aracılığıyla üretildi ve hata ayıklaması yapıldı.
-- **Sonuç**: İlk ürün gereksinimlerine uyan, işlevsel bir Android uygulaması.
+- **Cihaz İçi İşleme (On-Device Processing):** Belgeler asla harici sunuculara yüklenmez; tüm optimizasyon algoritmaları doğrudan cihazın işlemcisi üzerinde yerel olarak çalıştırılır.
+- **Akıllı Sıkıştırma Motoru:** Metin okunabilirliğini bozmadan gereksiz meta verileri ve yüksek çözünürlüklü gömülü raster görselleri optimize eden akıllı sıkıştırma mantığı.
+- **Modern Kotlin Altyapısı:** Android Jetpack bileşenleri, Coroutines ile arka plan dosya I/O işlemleri ve scoped storage uyumluluğu.
 
-[GitHub'da Kaynağı İncele](https://github.com/gokcank/OptiDoc)
+### Öne Çıkan Yetenekler
+
+1. **PDF Boyut Küçültme:** E-posta ve mesajlaşma sınırlarına takılan büyük PDF evraklarını hızlıca optimize etme.
+2. **Toplu İşlem Desteği:** Tek seferde birden fazla dosyayı kuyruğa alarak arka planda işleyebilme.
+3. **Gizlilik Garantisi:** Hassas kurumsal ve kişisel belgeler için %100 çevrimdışı işlem güvencesi.

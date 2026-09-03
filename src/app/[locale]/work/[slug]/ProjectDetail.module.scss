@@ -1,0 +1,230 @@
+.pageContainer {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 5rem;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--accent);
+    transform: translateX(-3px);
+  }
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.heroCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card, 16px);
+  padding: 2rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2.5rem;
+}
+
+.heroTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.heroLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.appIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  flex-shrink: 0;
+}
+
+.heroTitleGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill, 9999px);
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: var(--background);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-card);
+
+  &:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevate);
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.heroSummary {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text);
+  margin: 1.25rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.articleBody {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card, 16px);
+  padding: 2.25rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-card);
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text);
+
+  h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin: 1.75rem 0 0.85rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h3 {
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 1.5rem 0 0.65rem;
+  }
+
+  p {
+    margin: 0 0 1.25rem;
+  }
+
+  ul, ol {
+    margin: 0 0 1.25rem;
+    padding-left: 1.5rem;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  strong {
+    color: var(--text-heading);
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+  }
+
+  code {
+    background: var(--surface-hover);
+    border: 1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.88em;
+  }
+}
+
+.relatedSection {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.relatedHeading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .pageContainer {
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  .heroCard {
+    padding: 1.5rem;
+  }
+
+  .heroTopRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actionBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .articleBody {
+    padding: 1.5rem;
+  }
+}

@@ -2,18 +2,24 @@
 title: "Curalis"
 publishedAt: "2026-07-20"
 summary: "Kotlin ve Jetpack Compose ile geliştirilen, gizlilik odaklı akıllı ilaç ve kişisel sağlık takip Android uygulaması."
-summary_en: "A privacy-first, local-first intelligent medication and personal health tracking application for Android built with Jetpack Compose."
 tag: "Kotlin • Compose"
 link: "https://github.com/gokcank/Curalis"
 ---
 
-## Curalis
+## Proje Genel Bakışı
 
-Curalis, kullanıcıların sağlık ve ilaç takip süreçlerini en üst düzeyde gizlilikle, tamamen cihaz üzerinde (offline-first) yönetmelerini sağlayan akıllı bir Android uygulamasıdır.
+**Curalis**, kullanıcıların günlük ilaç ve sağlık takip süreçlerini en üst düzeyde gizlilikle, tamamen cihaz üzerinde (offline-first) yönetmelerini sağlayan modern bir Android uygulamasıdır. Kullanıcıların hassas sağlık verilerini üçüncü taraf sunuculara göndermeden, yerel şifreli depolama ile tam denetim sunar.
 
-### Temel Özellikler
-- **İlaç & Hatırlatıcı Yönetimi**: Dozaj, stok ve akıllı zamanlama altyapısı.
-- **Gizlilik Odaklı Mimari**: Sıfır veri toplama; tüm veriler Room DB ile yerel olarak şifreli saklanır.
-- **Modern Arayüz**: Jetpack Compose ve Material 3 ile akıcı, modern ve erişilebilir kullanıcı deneyimi.
+### Mimari & Teknik Tasarım
 
-[GitHub'da İncele](https://github.com/gokcank/Curalis)
+- **Modern Android Mimarisi:** Google tarafından tavsiye edilen Clean Architecture ve MVVM desenleri temel alınarak geliştirilmiştir.
+- **Kullanıcı Arayüzü:** Akıcı animasyonlar, karanlık mod desteği ve Material 3 tasarım ilkeleriyle saf **Jetpack Compose** kullanılarak inşa edilmiştir.
+- **Yerel Veri Katmanı:** Tüm sağlık ve ilaç kayıtları, cihaz üzerinde **Room DB** (SQLite) ile şifreli ve ilişkisel yapıda saklanır.
+- **Arka Plan Görevleri:** Zamanında ve batarya dostu bildirimler için **WorkManager** ve AlarmManager altyapısı entegre edilmiştir.
+
+### Öne Çıkan Yetenekler
+
+1. **Akıllı İlaç Takvimi:** Çoklu dozaj, periyodik saatler ve esnek kullanım sıklığı desteği.
+2. **Kişisel Sağlık Günlüğü:** Tansiyon, kan şekeri, nabız ve semptom kayıtlarını grafiksel analizlerle takip edebilme.
+3. **Stok & Yenileme Uyarıları:** Kritik seviyeye inen ilaçlar için erken bildirim sistemi.
+4. **Sıfır Veri Toplama:** Cihaz dışına hiçbir analitik veya telemetri verisi aktarılmaz; mahremiyet esastır.

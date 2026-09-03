@@ -1,18 +1,23 @@
 ---
 title: "ValutaRate"
-publishedAt: "2026-06-27"
-summary: "Gerçek zamanlı veri güncellemeleri sunan, döviz kurlarını takip eden ve para birimi dönüştürme imkânı sağlayan bir Android uygulaması."
+publishedAt: "2026-06-15"
+summary: "Gerçek zamanlı döviz kuru takibi, anlık parite dönüşümü ve finansal hesaplama Android uygulaması."
 tag: "Kotlin"
+link: "https://play.google.com/store/apps/details?id=com.gokcank.valutarate"
 ---
 
-## ValutaRate
+## Proje Genel Bakışı
 
-ValutaRate, döviz kurlarını takip eder ve Android kullanıcıları için para birimi dönüştürme imkânı sunar.
+**ValutaRate**, küresel ve yerel para birimlerinin güncel değerlerini, çapraz kurlarını ve altın/kripto endekslerini anlık olarak takip etmeyi sağlayan hafif ve kullanıcı dostu bir finansal hesaplama aracıdır.
 
-### Yapay Zeka Destekli Mimari
+### Mimari & Teknik Tasarım
 
-- **API Entegrasyonu**: Kotlin ortamında API sorgulama ve ayrıştırma işlemlerini uygulamak için yapay zekaya yönergeler verdim.
-- **Durum Yönetimi**: Veri çekme sırasındaki uygulama durumunu yapay zeka yönlendirmeleriyle yönettim.
-- **Arayüz/Kullanıcı Deneyimi**: Modern Android arayüz bileşenlerini kullanarak okunabilir bir arayüz tasarlandı.
+- **Çevrimdışı Kur Hafızası:** İnternet kesintilerinde en son çekilen güncel kurları yerel veritabanında saklayarak hesap makinesinin her koşulda çalışmasını sağlayan offline-first kurgu.
+- **Düşük Gecikmeli Veri Akışı:** Güvenilir finansal API sağlayıcıları üzerinden otomatik ve manuel yenileme seçenekleri.
+- **Hafif Bellek Profili:** Minimal bağımlılık ve saf Kotlin mimarisi ile batarya dostu arka plan güncellemeleri.
 
-[GitHub'da Kaynağı İncele](https://github.com/gokcank/ValutaRate)
+### Öne Çıkan Yetenekler
+
+1. **Çoklu Para Birimi Dönüştürücü:** Tek ekranda birden çok para birimini aynı anda birbirine dönüştürme.
+2. **Favori Portföy Takibi:** Sık kullanılan para birimlerini başa sabitleme ve anlık fiyat bildirimleri.
+3. **Tarihsel Değişim Grafikleri:** Kurların 7 günlük, 30 günlük ve yıllık trend analizleri.

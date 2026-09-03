@@ -1,18 +1,23 @@
 ---
 title: "Project Nucleus"
-publishedAt: "2026-08-10"
-summary: "A modular, customizable control center for Linux built with Tauri, Rust, and React."
+publishedAt: "2026-07-10"
+summary: "Lightweight and modular Linux desktop control center and web showcase built with Rust and modern web technologies."
 tag: "Rust • TypeScript"
 link: "https://gokcank.github.io/Nucleus/"
 ---
 
-## Project Nucleus
+## Project Overview
 
-Project Nucleus brings your everyday desktop tools, productivity utilities, and system monitoring into a single floating, modular panel on Linux.
+**Project Nucleus** is a next-generation desktop system manager and control center tailored for Linux environments. By pairing a high-performance, low-overhead Rust backend with a frosted glassmorphic web interface, it provides deep system observability and seamless hardware controls without burdening system memory.
 
-### Key Features
-- **Modular Card Architecture**: Responsive, draggable grid of cards you can customize, reorder, and configure.
-- **Lightweight & Blazing Fast**: Built on Tauri and Rust for native performance with minimal memory overhead.
-- **Glassmorphic Aesthetic**: Clean, modern frosted glass UI toggled with a single global shortcut or tray icon.
+### Architecture & Technical Design
 
-[Visit Live Showcase](https://gokcank.github.io/Nucleus/)
+- **Core Daemon (Rust):** Direct Linux kernel queries, hardware monitoring (CPU, RAM, temperatures, fan speeds), and process tracking with zero memory leaks.
+- **Frontend Layer (TypeScript & Web):** Minimalist frosted glass aesthetics, CSS variables, and responsive micro-animations.
+- **IPC Bridge:** Ultra-fast, secure local socket communication bridging system events to the visual user interface.
+
+### Key Capabilities
+
+1. **Real-Time Telemetry:** Live monitors for CPU load distributions, memory usage, storage, and network throughput.
+2. **Quick System Actions:** One-click power profiles (performance / power saver), display parameters, and audio routing.
+3. **Modular Widget System:** Extensible framework allowing users to design and plug in customized system widgets.

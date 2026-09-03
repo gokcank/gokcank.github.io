@@ -1,19 +1,24 @@
 ---
 title: "TriviaQuiz"
 publishedAt: "2026-07-15"
-summary: "Kotlin ve Jetpack Compose ile geliştirilen, 13 kategoride zengin soru havuzuna ve Google Play Games entegrasyonuna sahip bilgi yarışması oyunu."
-summary_en: "A modern, offline-first Android trivia game built with Kotlin and Jetpack Compose featuring a 13-category Turkish question bank."
+summary: "13 kategoride 26.000'den fazla soru içeren, çevrimdışı ve yapay zeka destekli Türkçe bilgi yarışması oyunu."
 tag: "Kotlin • Compose"
-link: "https://github.com/gokcank/TriviaQuiz"
+link: "https://play.google.com/store/apps/details?id=com.gokcank.triviaquiz"
 ---
 
-## TriviaQuiz
+## Proje Genel Bakışı
 
-TriviaQuiz, zengin soru havuzu ve modern oyun mekanikleriyle tasarlanmış, çevrimdışı öncelikli (offline-first) bir Türkçe bilgi yarışması uygulamasıdır.
+**TriviaQuiz**, geniş bir genel kültür havuzuna sahip, internet bağlantısı gerektirmeyen (offline-first) ve yapay zeka ile doğrulanmış 26.000'den fazla soru barındıran kapsamlı bir Türkçe bilgi yarışmasıdır. Google Play Games Services entegrasyonu sayesinde oyuncuların başarımlarını ve liderlik sıralamalarını takip etmelerine olanak tanır.
 
-### Temel Özellikler
-- **13 Farklı Kategori**: Bilim, tarih, spor, teknoloji, coğrafya ve genel kültür alanında geniş soru seti.
-- **Özelleştirilebilir Oyun Modları**: Süreli, serbest, soru sayısı ve zorluk seviyesi filtreleri.
-- **Google Play Games & Başarımlar**: XP kazanma, seviye ilerlemesi ve liderlik tabloları.
+### Mimari & Teknik Tasarım
 
-[GitHub'da İncele](https://github.com/gokcank/TriviaQuiz)
+- **Uygulama Mimarisi:** Clean Architecture, Single Activity prensibi ve MVI (Model-View-Intent) akışı ile yüksek kararlılık.
+- **Kullanıcı Arayüzü:** Akıcı geçişler, soru geri sayım sayaçları ve dinamik görsel temalar için saf **Jetpack Compose**.
+- **Yüksek Performanslı Soru Motoru:** 26.000+ soruluk devasa veritabanı, optimize edilmiş SQLite ve Room DB üzerinde milisaniyeler içinde sorgulanır.
+- **Google Play Games Entegrasyonu:** Küresel liderlik tabloları ve kategoriye özel kilit açılabilir başarımlar.
+
+### Öne Çıkan Yetenekler
+
+1. **13 Zengin Kategori:** Tarih, Coğrafya, Sinema, Bilim, Edebiyat, Spor ve daha fazlası.
+2. **Çevrimdışı Oynanabilirlik:** İnternet erişimi olmadan metroda, uçakta ve her yerde kesintisiz oyun deneyimi.
+3. **Zaman Karşı Yarış & Joker Sistemi:** Yarı yarıya, pas geçme ve ek süre gibi interaktif joker mekanizmaları.

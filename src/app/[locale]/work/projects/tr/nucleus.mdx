@@ -1,19 +1,23 @@
 ---
 title: "Project Nucleus"
-publishedAt: "2026-08-10"
-summary: "Linux için Tauri, Rust ve React ile geliştirilen modüler, özelleştirilebilir masaüstü kontrol merkezi ve web vitrini."
-summary_en: "A modular, customizable control center for Linux built with Tauri, Rust, and React."
+publishedAt: "2026-07-10"
+summary: "Rust ve modern web teknolojileri ile geliştirilen, hafif ve modüler Linux masaüstü kontrol merkezi."
 tag: "Rust • TypeScript"
 link: "https://gokcank.github.io/Nucleus/"
 ---
 
-## Project Nucleus
+## Proje Genel Bakışı
 
-Project Nucleus, günlük masaüstü araçlarını, üretkenlik gereçlerini ve sistem izleme panellerini tek bir kayan panelde toplayan modüler bir Linux kontrol merkezidir.
+**Project Nucleus**, Linux masaüstü ortamları için tasarlanmış yüksek performanslı, modüler ve zarif bir sistem yönetim ve kontrol merkezidir. Sistem çekirdeğiyle doğrudan konuşan hafif Rust arka ucu sayesinde minimum kaynak tüketirken, modern cam panel dokulu web arayüzü ile üstün bir kullanıcı deneyimi sunar.
 
-### Temel Özellikler
-- **Modüler Kart Mimarisi**: Yeniden sıralanabilen, boyutlandırılabilen esnek widget ve kontrol kartları.
-- **Hafif ve Hızlı**: Rust ve Tauri tabanlı hafif arka plan motoru ile minimum sistem kaynağı tüketimi.
-- **Zarif Cam Tasarım**: Modern cam panelli (glassmorphic) arayüz ve global kısayol erişimi.
+### Mimari & Teknik Tasarım
 
-[Canlı Web Vitrinini Ziyaret Et](https://gokcank.github.io/Nucleus/)
+- **Çekirdek Motor (Rust):** Sistem çağrıları, donanım sensörleri (CPU, RAM, sıcaklık, fan hızları) ve süreç yönetimini sıfır bellek sızıntısıyla yürüten yerel Rust altyapısı.
+- **Arayüz Katmanı (TypeScript & Web):** Modern cam panel (`glassmorphism`), CSS değişkenleri ve akıcı mikro-animasyonlar.
+- **IPC / Veri Köprüsü:** Çekirdek ile arayüz arasında düşük gecikmeli, güvenli yerel soket iletişimi.
+
+### Öne Çıkan Yetenekler
+
+1. **Canlı Donanım İzleme:** Gerçek zamanlı işlemci yükü, bellek dağılımı, depolama ve ağ trafiği monitörü.
+2. **Hızlı Sistem Eylemleri:** Tek tıkla güç yönetimi, profil geçişleri (performans / güç tasarrufu) ve ses/ekran denetimleri.
+3. **Modüler Genişletilebilirlik:** Kullanıcıların kendi ihtiyaçlarına göre yeni araç ve widget ekleyebileceği esnek mimari.
