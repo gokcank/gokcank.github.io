@@ -1,10 +1,30 @@
-.button {
-  display: flex;
+.themeBtn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-btn, 8px);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+
+  &:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
+    color: var(--text-heading);
+  }
+
   svg {
-    width: 1em;
-    height: 1em;
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 }

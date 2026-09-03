@@ -1,30 +1,53 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Row, ToggleButton, useTheme } from "@once-ui-system/core";
+import styles from "./ThemeToggle.module.scss";
 
 export const ThemeToggle: React.FC = () => {
-  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState("light");
+  const [currentTheme, setCurrentTheme] = useState("dark");
 
   useEffect(() => {
     setMounted(true);
-    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
+    const saved = document.documentElement.getAttribute("data-theme") || "dark";
+    setCurrentTheme(saved);
   }, []);
 
-  useEffect(() => {
-    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
-  }, [theme]);
+  const toggleTheme = () => {
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    localStorage.setItem("data-theme", nextTheme);
+    setCurrentTheme(nextTheme);
+  };
 
-  const icon = currentTheme === "dark" ? "light" : "dark";
-  const nextTheme = currentTheme === "light" ? "dark" : "light";
+  if (!mounted) {
+    return (
+      <button type="button" className={styles.themeBtn} aria-label="Toggle theme">
+        <span style={{ width: 16, height: 16 }} />
+      </button>
+    );
+  }
 
   return (
-    <ToggleButton
-      prefixIcon={icon}
-      onClick={() => setTheme(nextTheme)}
-      aria-label={`Switch to ${nextTheme} mode`}
-    />
+    <button
+      type="button"
+      className={styles.themeBtn}
+      onClick={toggleTheme}
+      aria-label={`Switch to ${currentTheme === "dark" ? "light" : "dark"} mode`}
+      title={`Switch to ${currentTheme === "dark" ? "light" : "dark"} mode`}
+    >
+      {currentTheme === "dark" ? (
+        // Sun Icon
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+      ) : (
+        // Moon Icon
+        <svg viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      )}
+    </button>
   );
 };

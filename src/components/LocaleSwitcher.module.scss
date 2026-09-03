@@ -1,0 +1,32 @@
+.localeGroup {
+  display: inline-flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn, 8px);
+  padding: 2px;
+  gap: 2px;
+}
+
+.localeBtn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
+
+  &:hover {
+    color: var(--text-heading);
+  }
+
+  &.active {
+    background: var(--surface-elevated);
+    color: var(--text-heading);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
