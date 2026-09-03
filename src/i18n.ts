@@ -1,17 +1,17 @@
-import {notFound} from 'next/navigation';
-import {getRequestConfig} from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { getRequestConfig } from 'next-intl/server';
 
 const locales = ['tr', 'en'];
 
-export default getRequestConfig(async ({locale}) => {
-  const resolvedLocale = locale || 'tr';
+export default getRequestConfig(async ({ requestLocale }) => {
+  let locale = await requestLocale;
 
-  if (!locales.includes(resolvedLocale as string)) {
-    notFound();
+  if (!locale || !locales.includes(locale as any)) {
+    locale = 'tr';
   }
 
   return {
-    locale: resolvedLocale,
-    messages: (await import(`../messages/${resolvedLocale}.json`)).default
+    locale,
+    messages: (await import(`../messages/${locale}.json`)).default
   };
 });
