@@ -1,10 +1,14 @@
+import { notFound } from "next/navigation";
 import { Flex, Meta, Schema, Column, Heading } from "@once-ui-system/core";
-import { baseURL, gallery, person } from "@/resources";
+import { baseURL, gallery, person, routes } from "@/resources";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import GalleryView from "@/components/gallery/GalleryView";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  if (!routes["/gallery"]) {
+    notFound();
+  }
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Navigation' });
   return Meta.generate({
@@ -18,6 +22,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Gallery({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  if (!routes["/gallery"]) {
+    notFound();
+  }
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Navigation' });
 
