@@ -1,10 +1,14 @@
+import { notFound } from "next/navigation";
 import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person } from "@/resources";
+import { baseURL, blog, person, routes } from "@/resources";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  if (!routes["/blog"]) {
+    notFound();
+  }
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Navigation' });
   return Meta.generate({
@@ -18,6 +22,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Blog({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  if (!routes["/blog"]) {
+    notFound();
+  }
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Navigation' });
 
