@@ -29,6 +29,10 @@ export async function generateMetadata() {
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 
+export function generateStaticParams() {
+  return [{ locale: "tr" }, { locale: "en" }];
+}
+
 export default async function RootLayout({
   children,
   params

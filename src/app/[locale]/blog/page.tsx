@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: `${t('blog')} | ${person.name}`,
     description: blog.description,
     baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(t('blog'))}`,
+    image: person.avatar,
     path: blog.path,
   });
 }
@@ -29,7 +29,7 @@ export default async function Blog({ params }: { params: Promise<{ locale: strin
         path={blog.path}
         title={t('blog')}
         description={blog.description}
-        image={`/api/og/generate?title=${encodeURIComponent(t('blog'))}`}
+        image={`${baseURL}${person.avatar}`}
         author={{
           name: person.name,
           url: `${baseURL}/about`,

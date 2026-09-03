@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0;url=./tr">
+  <script>
+    (function() {
+      try {
+        var userLang = navigator.language || navigator.userLanguage;
+        if (userLang && userLang.toLowerCase().startsWith('en')) {
+          window.location.replace('./en');
+        } else {
+          window.location.replace('./tr');
+        }
+      } catch (e) {
+        window.location.replace('./tr');
+      }
+    })();
+  </script>
+  <title>Hasan Gökcan KAHRAMAN - Portfolio</title>
+</head>
+<body>
+  <p>Yönlendiriliyor... <a href="./tr">Türkçe</a> | <a href="./en">English</a></p>
+</body>
+</html>
