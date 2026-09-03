@@ -1,4 +1,4 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Column, Meta, Schema } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -36,9 +36,9 @@ export default async function Work({ params }: { params: Promise<{ locale: strin
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
+      <h1 style={{ textAlign: "center", fontSize: "2.25rem", fontWeight: 700, margin: "1rem 0 2rem", color: "var(--text-heading)" }}>
         {t('work')}
-      </Heading>
+      </h1>
       <Projects locale={locale} />
     </Column>
   );

@@ -1,90 +1,71 @@
-"use client";
-
-import {
-  AvatarGroup,
-  Carousel,
-  Column,
-  Flex,
-  Heading,
-  SmartLink,
-  Text,
-} from "@once-ui-system/core";
+import Link from "next/link";
+import styles from "./ProjectCard.module.scss";
 
 interface ProjectCardProps {
   href: string;
-  priority?: boolean;
-  images: string[];
   title: string;
-  content: string;
   description: string;
-  avatars: { src: string }[];
-  link: string;
+  tag?: string;
+  link?: string;
+  caseStudyLabel?: string;
+  viewProjectLabel?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
-  images = [],
   title,
-  content,
   description,
-  avatars,
+  tag = "AI-Assisted",
   link,
+  caseStudyLabel = "Read case study",
+  viewProjectLabel = "View project",
 }) => {
+  // Extract initial or short letter for icon box
+  const initial = title ? title.charAt(0).toUpperCase() : "P";
+
   return (
-    <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
-      <Flex
-        s={{ direction: "column" }}
-        fillWidth
-        paddingX="s"
-        paddingTop="12"
-        paddingBottom="24"
-        gap="l"
-      >
-        {title && (
-          <Flex flex={5}>
-            <Heading as="h2" wrap="balance" variant="heading-strong-xl">
-              {title}
-            </Heading>
-          </Flex>
+    <article className={styles.card}>
+      <div>
+        <div className={styles.headerRow}>
+          <div className={styles.iconBox} aria-hidden="true">
+            {initial}
+          </div>
+          {tag && <span className={styles.tag}>{tag}</span>}
+        </div>
+
+        <h3 className={styles.title}>{title}</h3>
+
+        <p className={styles.description}>{description}</p>
+      </div>
+
+      <div className={styles.footerRow}>
+        <Link href={href} className={styles.caseStudyLink}>
+          <span>{caseStudyLabel}</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </Link>
+
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.externalLink}
+            aria-label={`${viewProjectLabel} (${title})`}
+          >
+            <span>{viewProjectLabel}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
         )}
-        {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
-          <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
-            {description?.trim() && (
-              <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
-                {description}
-              </Text>
-            )}
-            <Flex gap="24" wrap>
-              {content?.trim() && (
-                <SmartLink
-                  suffixIcon="arrowRight"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={href}
-                >
-                  <Text variant="body-default-s">Read case study</Text>
-                </SmartLink>
-              )}
-              {link && (
-                <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={link}
-                >
-                  <Text variant="body-default-s">View project</Text>
-                </SmartLink>
-              )}
-            </Flex>
-          </Column>
-        )}
-      </Flex>
-    </Column>
+      </div>
+    </article>
   );
 };
+
+export default ProjectCard;

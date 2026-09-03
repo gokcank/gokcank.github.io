@@ -1,17 +1,19 @@
-.hover {
-    transition: var(--transition-micro-medium);
-
-    &:hover {
-        transform: translateX(var(--static-space-8));
-
-        .indicator {
-            transform: rotate(0);
-        }
-    }
+.projectsWrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
 }
 
-.indicator {
-    transform: rotate(-90deg);
-    left: -2rem;
-    transition: var(--transition-micro-medium);
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 720px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }

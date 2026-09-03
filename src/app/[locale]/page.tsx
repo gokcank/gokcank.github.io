@@ -57,19 +57,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         featuredProjectLabel={home.featured.display ? tHome('featuredProject') : undefined}
         featuredProjectHref={home.featured.display ? home.featured.href : undefined}
       />
-      <RevealFx translateY="16" delay={0.6}>
-        <Column fillWidth horizontal="center" gap="m">
-          <Projects range={[1, 2]} locale={locale} />
-          <Button
-            href="/work"
-            variant="secondary"
-            size="m"
-            arrowIcon
-          >
+      <div style={{ width: "100%", maxWidth: 900, margin: "0 auto" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 1rem 1rem", borderBottom: "1px solid var(--border)", marginBottom: "1.5rem" }}>
+          <h2 style={{ fontSize: "1.35rem", fontWeight: 600, margin: 0, color: "var(--text-heading)" }}>
             {tHome('allProjects')}
-          </Button>
-        </Column>
-      </RevealFx>
+          </h2>
+        </div>
+        <Projects range={[1, 4]} locale={locale} />
+      </div>
       {routes["/blog"] && (
         <Column fillWidth gap="24" marginBottom="l">
           <Row fillWidth paddingRight="64">

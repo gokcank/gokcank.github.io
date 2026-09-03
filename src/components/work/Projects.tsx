@@ -1,14 +1,14 @@
 import { getPosts } from "@/utils/utils";
-import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
+import styles from "./Projects.module.scss";
 
 interface ProjectPost {
   slug: string;
   metadata: {
     title: string;
     summary: string;
-    images: string[];
-    team?: { avatar: string }[];
+    tag?: string;
+    images?: string[];
     link?: string;
     publishedAt: string;
   };
@@ -22,13 +22,12 @@ interface ProjectsProps {
 }
 
 export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
-  // Try locale-specific folder first, fallback to root
   let allProjects: ProjectPost[] = [];
   
   try {
     allProjects = getPosts(["src", "app", "[locale]", "work", "projects", locale]);
   } catch {
-    // fallback to root projects
+    // fallback
   }
   
   if (!allProjects || allProjects.length === 0) {
@@ -39,7 +38,6 @@ export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
     }
   }
 
-  // Exclude by slug (exact match)
   if (exclude && exclude.length > 0) {
     allProjects = allProjects.filter((post) => !exclude.includes(post.slug));
   }
@@ -53,20 +51,23 @@ export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
     : sortedProjects;
 
   return (
-    <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
-      {displayedProjects.map((post, index) => (
-        <ProjectCard
-          priority={index < 2}
-          key={post.slug}
-          href={`/work/${post.slug}`}
-          images={post.metadata.images}
-          title={post.metadata.title}
-          description={post.metadata.summary}
-          content={post.content}
-          avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
-          link={post.metadata.link || ""}
-        />
-      ))}
-    </Column>
+    <div className={styles.projectsWrapper}>
+      <div className={styles.projectsGrid}>
+        {displayedProjects.map((post) => (
+          <ProjectCard
+            key={post.slug}
+            href={`/${locale}/work/${post.slug}`}
+            title={post.metadata.title}
+            description={post.metadata.summary}
+            tag={post.metadata.tag || "AI-Assisted"}
+            link={post.metadata.link}
+            caseStudyLabel={locale === "tr" ? "Detayları İncele" : "Read case study"}
+            viewProjectLabel={locale === "tr" ? "Projeyi Gör" : "View project"}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
+
+export default Projects;
