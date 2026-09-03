@@ -7,16 +7,19 @@
   },
   "About": {
     "title": "Hakkında",
-    "intro": "Geleneksel kodlama süreçleri yerine Gemini ve Claude gibi yapay zeka araçlarına yönergeler vererek Android uygulamaları geliştiriyorum. Fikirleri, kullanıcı deneyimi hedefleriyle birleştirerek yazılım üretim süreçlerini yönetiyorum.",
-    "process": "Benim Sürecim",
-    "processDesc1": "Yapay zeka asistanlarını yönlendirerek Kotlin ve Jetpack Compose tabanlı Android uygulamaları geliştirme sürecini yönettim.",
-    "processDesc2": "AstroYorum, NotesAssistant, OptiDoc ve ValutaRate uygulamalarının fikir aşamasından yayınlanma aşamasına kadarki süreçlerini kurguladım.",
-    "technicalExpertise": "Teknik Uzmanlık (AI ile)",
-    "skills": {
-      "prompting": "Uygulama mimarisini kurmak ve logic hatalarını çözmek için Gemini ve Claude modellerini yönlendirme.",
-      "android": "AI asistanları aracılığıyla Kotlin dilinde Android uygulamaları oluşturma.",
-      "firebase": "Uygulamalara bulut veri tabanı, kullanıcı doğrulama ve reklam servislerini ekleme sürecini yönetme."
-    },
+    "subtitle": "Vibecoder | Yapay Zeka Destekli Mobil Uygulama Mimarı",
+    "quote": "Yapay zeka senfonisini ben yönetiyorum, kodları o yazıyor!",
+    "poetry": "Code is poetry written for machines to execute and humans to understand.",
+    "intro": "Geleneksel yazılım süreçlerinin ötesine geçerek; Google Gemini, Antigravity IDE ve yapay zeka modellerini bir orkestra şefi gibi yönetiyor, fikirleri modern ve yüksek performanslı Android uygulamalarına dönüştürüyorum. Ürün vizyonu, mimari kurgu ve kullanıcı deneyimi tarafımdan tasarlanırken; kodlama ve optimizasyon süreçleri AI ile birlikte hayata geçiriliyor.",
+    "pillarsTitle": "3 Çekirdek Odak Alanı",
+    "pillar1Title": "Modern Android & Offline-First Mimari",
+    "pillar1Desc": "Kotlin, Jetpack Compose, Material 3 ve Room DB kullanarak güvenli, gizlilik odaklı ve çevrimdışı çalışan sağlam mobil temeller inşa ediyorum.",
+    "pillar2Title": "AI Yönetimi & Prompt Mühendisliği",
+    "pillar2Desc": "Karmaşık mimarileri kurgulamak, mantık hatalarını çözmek ve temiz kod üretmek için Google Gemini ve Claude modellerini ileri seviye yönergelerle yönlendiriyorum.",
+    "pillar3Title": "Tam Yaşam Döngüsü & Monetizasyon",
+    "pillar3Desc": "Google Play Store yayın süreçleri, Firebase bulut servisleri ve Google AdMob reklam gelir modellerini uçtan uca yönetiyorum.",
+    "techTitle": "Teknolojiler & Araç Seti",
+    "githubStatsTitle": "Canlı GitHub İstatistikleri",
     "languages": {
       "Turkish": "Türkçe",
       "English": "İngilizce"

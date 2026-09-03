@@ -1,33 +1,15 @@
-import {
-  Avatar,
-  Button,
-  Column,
-  Heading,
-  Icon,
-  IconButton,
-  Media,
-  Tag,
-  Text,
-  Meta,
-  Schema,
-  Row,
-} from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
-import TableOfContents from "@/components/about/TableOfContents";
-import styles from "@/components/about/about.module.scss";
-import React from "react";
+import { person } from "@/resources";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import styles from "./AboutPage.module.scss";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'About' });
-  return Meta.generate({
+  return {
     title: `${t('title')} | ${person.name}`,
-    description: about.description,
-    baseURL: baseURL,
-    image: person.avatar,
-    path: about.path,
-  });
+    description: t('intro'),
+  };
 }
 
 export default async function About({ params }: { params: Promise<{ locale: string }> }) {
@@ -35,271 +17,161 @@ export default async function About({ params }: { params: Promise<{ locale: stri
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'About' });
 
-  const structure = [
+  const techCategories = [
     {
-      title: "Introduction",
-      display: about.intro.display,
-      items: [],
+      label: locale === "tr" ? "Mobil Geliştirme" : "Mobile Development",
+      pills: ["Kotlin", "Android Native", "Jetpack Compose", "Material 3", "Room DB", "Coroutines & Flow", "Hilt DI"],
     },
     {
-      title: t('process'),
-      display: about.work.display,
-      items: about.work.experiences.map((experience) => experience.company),
+      label: locale === "tr" ? "Yapay Zeka & Geliştirme Araçları" : "AI & Development Tools",
+      pills: ["Google Gemini", "Claude AI", "Prompt Engineering", "Antigravity IDE", "Git & GitHub Actions"],
     },
     {
-      title: about.studies.title,
-      display: about.studies.display,
-      items: about.studies.institutions.map((institution) => institution.name),
+      label: locale === "tr" ? "Masaüstü & Sistem Araçları" : "Desktop & System Utilities",
+      pills: ["Tauri", "Rust", "Python", "Qt6 / PySide6", "Linux", "SatcoDX (.sdx)"],
     },
     {
-      title: t('technicalExpertise'),
-      display: about.technical.display,
-      items: about.technical.skills.map((skill) => skill.title),
+      label: locale === "tr" ? "Bulut, Yayın & Monetizasyon" : "Cloud, Store & Monetization",
+      pills: ["Google Play Console", "Firebase", "Google AdMob", "Offline-First Sync", "app-ads.txt"],
     },
   ];
+
   return (
-    <Column maxWidth="m">
-      <Schema
-        as="webPage"
-        baseURL={baseURL}
-        title={t('title')}
-        description={about.description}
-        path={about.path}
-        image={`${baseURL}${person.avatar}`}
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-      {about.tableOfContent.display && (
-        <Column
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          s={{ hide: true }}
-        >
-          <TableOfContents structure={structure} about={about} />
-        </Column>
-      )}
-      <Row fillWidth s={{ direction: "column"}} horizontal="center">
-        {about.avatar.display && (
-          <Column
-            className={styles.avatar}
-            top="64"
-            fitHeight
-            position="sticky"
-            s={{ position: "relative", style: { top: "auto" } }}
-            xs={{ style: { top: "auto" } }}
-            minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
-            gap="m"
-            flex={3}
-            horizontal="center"
+    <div className={styles.container}>
+      {/* Profile Card */}
+      <section className={styles.profileCard}>
+        <div className={styles.avatarWrapper}>
+          <img src={person.avatar} alt={person.name} />
+        </div>
+        <div className={styles.profileInfo}>
+          <h1 className={styles.name}>{person.name}</h1>
+          <span className={styles.roleBadge}>{t('subtitle')}</span>
+          <div className={styles.metaRow}>
+            <span className={styles.metaItem}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+              <span>{person.location}</span>
+            </span>
+            <span className={styles.metaItem}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              <span>{t('languages.Turkish')} & {t('languages.English')}</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Vibecoder Quote Card */}
+      <section className={styles.quoteCard}>
+        <p className={styles.quoteText}>"{t('quote')}"</p>
+        <p className={styles.poetryText}>— "{t('poetry')}"</p>
+      </section>
+
+      {/* Intro Text */}
+      <section className={styles.introSection}>
+        <p>{t('intro')}</p>
+      </section>
+
+      {/* 3 Core Pillars */}
+      <section>
+        <h2 className={styles.sectionTitle}>
+          <span>🎯</span>
+          <span>{t('pillarsTitle')}</span>
+        </h2>
+        <div className={styles.pillarsGrid}>
+          <div className={styles.pillarCard}>
+            <div className={styles.pillarIcon}>🚀</div>
+            <h3 className={styles.pillarTitle}>{t('pillar1Title')}</h3>
+            <p className={styles.pillarDesc}>{t('pillar1Desc')}</p>
+          </div>
+          <div className={styles.pillarCard}>
+            <div className={styles.pillarIcon}>🧠</div>
+            <h3 className={styles.pillarTitle}>{t('pillar2Title')}</h3>
+            <p className={styles.pillarDesc}>{t('pillar2Desc')}</p>
+          </div>
+          <div className={styles.pillarCard}>
+            <div className={styles.pillarIcon}>🛠️</div>
+            <h3 className={styles.pillarTitle}>{t('pillar3Title')}</h3>
+            <p className={styles.pillarDesc}>{t('pillar3Desc')}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack */}
+      <section className={styles.techSection}>
+        <h2 className={styles.sectionTitle} style={{ marginBottom: "1.5rem" }}>
+          <span>⚡</span>
+          <span>{t('techTitle')}</span>
+        </h2>
+        {techCategories.map((category) => (
+          <div key={category.label} className={styles.techCategory}>
+            <div className={styles.techCategoryLabel}>{category.label}</div>
+            <div className={styles.techPills}>
+              {category.pills.map((pill) => (
+                <span key={pill} className={styles.techPill}>
+                  {pill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Live GitHub Stats & Native Metrics */}
+      <section className={styles.statsSection}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1.25rem", flexWrap: "wrap", gap: "0.5rem" }}>
+          <h2 className={styles.sectionTitle} style={{ margin: 0 }}>
+            <span>📊</span>
+            <span>{t('githubStatsTitle')}</span>
+          </h2>
+          <a
+            href="https://github.com/gokcank"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.githubProfileLink}
+            aria-label="GitHub Profile"
           >
-            <Avatar src={person.avatar} size="xl" />
-            <Row gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
-            </Row>
-            {person.languages && person.languages.length > 0 && (
-              <Row wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
-                    {t(`languages.${language}`) || language}
-                  </Tag>
-                ))}
-              </Row>
-            )}
-          </Column>
-        )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
-          <Column
-            id="Introduction"
-            fillWidth
-            minHeight="160"
-            vertical="center"
-            marginBottom="32"
-          >
-            {about.calendar.display && (
-              <Row
-                fitWidth
-                border="brand-alpha-medium"
-                background="brand-alpha-weak"
-                radius="full"
-                padding="4"
-                gap="8"
-                marginBottom="m"
-                vertical="center"
-                className={styles.blockAlign}
-                style={{
-                  backdropFilter: "blur(var(--static-space-1))",
-                }}
-              >
-                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Row paddingX="8">Schedule a call</Row>
-                <IconButton
-                  href={about.calendar.link}
-                  data-border="rounded"
-                  variant="secondary"
-                  icon="chevronRight"
-                />
-              </Row>
-            )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
-            </Heading>
-            <Text
-              className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
-            >
-              {person.role}
-            </Text>
-            {social.length > 0 && (
-              <Row
-                className={styles.blockAlign}
-                paddingTop="20"
-                paddingBottom="8"
-                gap="8"
-                wrap
-                horizontal="center"
-                fitWidth
-                data-border="rounded"
-              >
-                {social
-                      .filter((item) => item.essential)
-                      .map(
-                  (item) =>
-                    item.link && (
-                      <React.Fragment key={item.name}>
-                        <Row s={{ hide: true }}>
-                          <Button
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                        </Row>
-                        <Row hide s={{ hide: false }}>
-                          <IconButton
-                            size="l"
-                            key={`${item.name}-icon`}
-                            href={item.link}
-                            icon={item.icon}
-                            variant="secondary"
-                          />
-                        </Row>
-                      </React.Fragment>
-                    ),
-                )}
-              </Row>
-            )}
-          </Column>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
+            <span>github.com/gokcank</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
 
-          {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              {t('intro')}
-            </Column>
-          )}
+        {/* Native Stat Metrics */}
+        <div className={styles.nativeStatsGrid}>
+          <div className={styles.nativeStatCard}>
+            <span className={styles.nativeStatValue}>14</span>
+            <span className={styles.nativeStatLabel}>{locale === "tr" ? "Açık Kaynak Repo" : "Public Repos"}</span>
+          </div>
+          <div className={styles.nativeStatCard}>
+            <span className={styles.nativeStatValue}>5</span>
+            <span className={styles.nativeStatLabel}>{locale === "tr" ? "Play Store Uygulaması" : "Play Store Apps"}</span>
+          </div>
+          <div className={styles.nativeStatCard}>
+            <span className={styles.nativeStatValue}>8+</span>
+            <span className={styles.nativeStatLabel}>{locale === "tr" ? "Aktif Proje" : "Featured Projects"}</span>
+          </div>
+          <div className={styles.nativeStatCard}>
+            <span className={styles.nativeStatValue}>100%</span>
+            <span className={styles.nativeStatLabel}>{locale === "tr" ? "Açık Kaynak & Şeffaf" : "Open Source"}</span>
+          </div>
+        </div>
 
-          {about.work.display && (
-            <>
-              <Heading as="h2" id={t('process')} variant="display-strong-s" marginBottom="m">
-                {t('process')}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
-                      </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
-                      </Text>
-                    </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      <Text as="li" variant="body-default-m">
-                        {t('processDesc1')}
-                      </Text>
-                      <Text as="li" variant="body-default-m">
-                        {t('processDesc2')}
-                      </Text>
-                    </Column>
-                  </Column>
-                ))}
-              </Column>
-            </>
-          )}
-
-          {about.studies.display && (
-            <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-                {about.studies.title}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.description}
-                    </Text>
-                  </Column>
-                ))}
-              </Column>
-            </>
-          )}
-
-          {about.technical.display && (
-            <>
-              <Heading
-                as="h2"
-                id={t('technicalExpertise')}
-                variant="display-strong-s"
-                marginBottom="40"
-              >
-                {t('technicalExpertise')}
-              </Heading>
-              <Column fillWidth gap="l">
-                <Column fillWidth gap="4">
-                  <Text id="AI Prompting & Logic" variant="heading-strong-l">AI Prompting & Logic</Text>
-                  <Text variant="body-default-m" onBackground="neutral-weak">{t('skills.prompting')}</Text>
-                  <Row wrap gap="8" paddingTop="8">
-                    <Tag size="l" prefixIcon="brain">Prompt Engineering</Tag>
-                  </Row>
-                </Column>
-                <Column fillWidth gap="4" marginTop="24">
-                  <Text id="Android Native Development" variant="heading-strong-l">Android Native Development</Text>
-                  <Text variant="body-default-m" onBackground="neutral-weak">{t('skills.android')}</Text>
-                  <Row wrap gap="8" paddingTop="8">
-                    <Tag size="l" prefixIcon="android">Kotlin</Tag>
-                    <Tag size="l" prefixIcon="layers">Jetpack Compose</Tag>
-                  </Row>
-                </Column>
-                <Column fillWidth gap="4" marginTop="24">
-                  <Text id="Firebase & AdMob Integration" variant="heading-strong-l">Firebase & AdMob Integration</Text>
-                  <Text variant="body-default-m" onBackground="neutral-weak">{t('skills.firebase')}</Text>
-                  <Row wrap gap="8" paddingTop="8">
-                    <Tag size="l" prefixIcon="fire">Firebase</Tag>
-                  </Row>
-                </Column>
-              </Column>
-            </>
-          )}
-        </Column>
-      </Row>
-    </Column>
+        {/* Live Streak Stats (Demolab CDN) */}
+        <div className={styles.statsGrid}>
+          <img
+            src={`https://streak-stats.demolab.com/?user=gokcank&locale=${locale}&theme=radical&hide_border=true`}
+            alt={locale === "tr" ? "GitHub Aktivite ve Katkı Serisi" : "GitHub Streak Stats"}
+            loading="lazy"
+          />
+        </div>
+      </section>
+    </div>
   );
 }
