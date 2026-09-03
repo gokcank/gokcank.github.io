@@ -1,91 +1,76 @@
-# Magic Portfolio
+# Hasan Gökcan KAHRAMAN — Portfolio
 
-Magic Portfolio is a simple, clean, beginner-friendly portfolio template. It supports an MDX-based content system for projects and blog posts, an about / CV page and a gallery.
+Modern, minimalist, and lightweight personal portfolio website built with **Next.js 16**, **React 19**, and **TypeScript**, styled with pure SCSS modules and frosted glassmorphic cards inspired by the [Nucleus](https://gokcank.github.io/Nucleus/) design philosophy.
 
-View the demo [here](https://demo.magic-portfolio.com).
+🌐 **Live Website:** [https://gokcank.github.io](https://gokcank.github.io)
 
-![Magic Portfolio](public/images/og/home.jpg)
+---
 
-## Getting started
+## 🚀 Key Features
 
-**1. Clone the repository**
-```
-git clone https://github.com/once-ui-system/magic-portfolio.git
-```
+- **Nucleus Minimalist Aesthetic:** Clean frosted glass panels (`glass-panel`), refined typography, and breathing room without heavy template overhead.
+- **Bilingual Support (i18n):** Seamless Turkish (TR) and English (EN) localization powered by `next-intl`.
+- **Dynamic Live Header:** Lightweight sticky navigation with real-time `Europe/Istanbul` clock, route-aware active indicators, and theme toggling.
+- **Dual Themes:** Sleek deep dark mode and warm alabaster/cream light mode with subtle ambient depth.
+- **8 Featured Projects:** Showcases offline-first Android apps and Linux desktop utilities with authentic app icons and tech stack tags.
+- **Enriched Identity:** Manifesto, core architecture pillars, categorized skill pills, and live GitHub activity metrics.
+- **Continuous Deployment:** Automated CI build verification and GitHub Pages deployment via GitHub Actions.
 
-**2. Install dependencies**
-```
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router, Turbopack, Static Export)
+- **Library:** [React 19](https://react.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** SCSS Modules & Vanilla CSS Variables
+- **Internationalization:** `next-intl`
+- **Hosting & CI/CD:** GitHub Pages & GitHub Actions
+
+---
+
+## 📂 Featured Projects
+
+1. **[Curalis](https://github.com/gokcank/Curalis)** — Privacy-first smart medication & personal health tracker (`Kotlin • Compose`).
+2. **[TriviaQuiz](https://github.com/gokcank/TriviaQuiz)** — Offline-first Turkish trivia game with 13 categories and Play Games integration (`Kotlin • Compose`).
+3. **[Project Nucleus](https://gokcank.github.io/Nucleus/)** — Modular Linux desktop control center and web showcase (`Rust • TypeScript`).
+4. **[SatSort](https://github.com/gokcank/SatSort)** — Desktop satellite channel list editor (.sdx) for Linux (`Python • Qt6`).
+5. **[AstroYorum](https://github.com/gokcank/AstroYorum)** — AI-assisted astrology & tarot Android application (`Kotlin • Compose`).
+6. **[OptiDoc](https://github.com/gokcank/OptiDoc)** — Document and file optimization utility for Android (`Kotlin`).
+7. **[ValutaRate](https://github.com/gokcank/ValutaRate)** — Real-time currency exchange rates and financial calculator (`Kotlin`).
+8. **[NotesAssistant](https://github.com/gokcank/NotesAssistant)** — Intelligent note-taking and thought organization tool (`Kotlin`).
+
+---
+
+## 💻 Local Development
+
+### Prerequisites
+- Node.js 18.17+
+- npm
+
+### Setup
+```bash
+# 1. Clone the repository
+git clone git@github.com:gokcank/gokcank.github.io.git
+cd gokcank.github.io
+
+# 2. Install dependencies
 npm install
-```
 
-**3. Run dev server**
-```
+# 3. Start development server
 npm run dev
 ```
 
-**4. Edit config**
+The site will be available at `http://localhost:3000`.
+
+### Production Build
+```bash
+npm run build
 ```
-src/resources/once-ui.config.js
-```
+Generates an optimized static export in the `out/` directory for deployment on GitHub Pages.
 
-**5. Edit content**
-```
-src/resources/content.js
-```
+---
 
-**6. Create blog posts / projects**
-```
-Add a new .mdx file to src/app/blog/posts or src/app/work/projects
-```
+## 📄 License
 
-Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
-
-## Documentation
-
-Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
-
-## Features
-
-### Once UI
-- All tokens, components & features of [Once UI](https://once-ui.com)
-
-### SEO
-- Automatic open-graph and X image generation with next/og
-- Automatic schema and metadata generation based on the content file
-
-### Design
-- Responsive layout optimized for all screen sizes
-- Timeless design without heavy animations and motion
-- Endless customization options through [data attributes](https://once-ui.com/docs/theming)
-
-### Content
-- Render sections conditionally based on the content file
-- Enable or disable pages for blog, work, gallery and about / CV
-- Generate and display social links automatically
-- Set up password protection for URLs
-
-### Localization
-- A localized, earlier version of Magic Portfolio is available with the next-intl library
-- To use localization, switch to the 'i18n' branch
-
-## Creators
-
-Lorant One: [Threads](https://www.threads.net/@lorant.one) / [LinkedIn](https://www.linkedin.com/in/lorant-one/)
-
-## Get involved
-
-- Join the Design Engineers Club on [Discord](https://discord.com/invite/5EyAQ4eNdS) and share your project with us!
-- Deployed your docs? Share it on the [Once UI Hub](https://once-ui.com/hub) too! We feature our favorite apps on our landing page.
-
-## License
-
-Distributed under the CC BY-NC 4.0 License.
-- Attribution is required.
-- Commercial usage is not allowed.
-- You can extend the license to [Dopler CC](https://dopler.app/license) by purchasing a [Once UI Pro](https://once-ui.com/pricing) license.
-
-See `LICENSE.txt` for more information.
-
-## Deploy with Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&project-name=portfolio&repository-name=portfolio&redirect-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&demo-title=Magic%20Portfolio&demo-description=Showcase%20your%20designers%20or%20developer%20portfolio&demo-url=https%3A%2F%2Fdemo.magic-portfolio.com&demo-image=%2F%2Fraw.githubusercontent.com%2Fonce-ui-system%2Fmagic-portfolio%2Fmain%2Fpublic%2Fimages%2Fog%2Fhome.jpg)
+This repository is maintained by **Hasan Gökcan KAHRAMAN**. All rights reserved.
