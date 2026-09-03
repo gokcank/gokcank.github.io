@@ -1,18 +1,15 @@
 import {
   Heading,
-  Text,
   Button,
-  Avatar,
   RevealFx,
   Column,
-  Badge,
   Row,
   Schema,
   Meta,
   Line,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL, routes } from "@/resources";
-import { Mailchimp } from "@/components";
+import { Mailchimp, Hero } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -52,67 +49,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column fillWidth horizontal="center" gap="m">
-        <Column maxWidth="s" horizontal="center" align="center">
-          {home.featured.display && (
-            <RevealFx
-              fillWidth
-              horizontal="center"
-              paddingTop="16"
-              paddingBottom="32"
-              paddingLeft="12"
-            >
-              <Badge
-                background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="4"
-                onBackground="neutral-strong"
-                textVariant="label-default-s"
-                arrow={false}
-                href={home.featured.href}
-              >
-                <Row paddingY="2">
-                  <Row gap="12" vertical="center">
-                    <strong className="ml-4">AI-Assisted</strong>{" "}
-                    <Line background="brand-alpha-strong" vert height="20" />
-                    <Text marginRight="4" onBackground="brand-medium">
-                      {tHome('featuredProject')}
-                    </Text>
-                  </Row>
-                </Row>
-              </Badge>
-            </RevealFx>
-          )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
-              {tHome('headline')}
-            </Heading>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              arrowIcon
-            >
-              <Row gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {tAbout('title')}
-              </Row>
-            </Button>
-          </RevealFx>
-        </Column>
-      </Column>
+      <Hero
+        locale={locale}
+        headline={tHome('headline')}
+        allProjectsLabel={tHome('allProjects')}
+        aboutLabel={tAbout('title')}
+        featuredProjectLabel={home.featured.display ? tHome('featuredProject') : undefined}
+        featuredProjectHref={home.featured.display ? home.featured.href : undefined}
+      />
       <RevealFx translateY="16" delay={0.6}>
         <Column fillWidth horizontal="center" gap="m">
           <Projects range={[1, 2]} locale={locale} />
