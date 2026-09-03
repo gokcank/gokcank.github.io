@@ -16,7 +16,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
   title,
   description,
-  tag = "AI-Assisted",
+  tag,
   link,
   icon,
   caseStudyLabel = "Read case study",

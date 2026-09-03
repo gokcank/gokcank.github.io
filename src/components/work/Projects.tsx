@@ -70,7 +70,7 @@ export function Projects({ range, exclude, locale = "en" }: ProjectsProps) {
             href={`/${locale}/work/${post.slug}`}
             title={post.metadata.title}
             description={post.metadata.summary}
-            tag={post.metadata.tag || "AI-Assisted"}
+            tag={post.metadata.tag}
             link={post.metadata.link}
             icon={iconMap[post.slug]}
             caseStudyLabel={locale === "tr" ? "Detayları İncele" : "Read case study"}
