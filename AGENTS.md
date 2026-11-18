@@ -26,6 +26,7 @@ Personal bilingual (Turkish/English) portfolio site, a static Next.js export ser
 - Check social/OG preview images after changing branding (template images once leaked into link previews).
 
 ## Status (as of 2026-11-07)
+- Project status: **maintenance** (set 2026-11-18; source of truth: the brain page).
 - Live and green; last change 2026-09-03 (GitHub Pages move, minimalist redesign, 8 featured projects).
   The Vercel → GitHub Pages migration is complete.
 
